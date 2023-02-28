@@ -1,11 +1,12 @@
 import { FC } from 'react'
+import { StyledButton } from './styled-compoenents/styled-button'
 
 type Props = {
 	callback: () => void
 }
 
 const StartButton: FC<Props> = ({ callback }): JSX.Element => {
-	return <h1>Start Game</h1>
+	return <StyledButton>START GAME</StyledButton>
 }
 
 export default StartButton

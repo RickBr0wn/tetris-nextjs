@@ -1,15 +1,19 @@
 import { FC } from 'react'
 import Cell from './cell'
 
+import log from './log'
+import { TetrominoKeys } from '../tetrominoes'
+import { StyledStage } from './styled-compoenents/styled-stage'
+
 type StageProps = {
-	stage: string
+	stage: [TetrominoKeys, string][][]
 }
 
 const Stage: FC<StageProps> = ({ stage }): JSX.Element => {
 	return (
-		<h1>
-			<Cell type='' />
-		</h1>
+		<StyledStage width={stage[0].length} height={stage.length}>
+			{stage.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))}
+		</StyledStage>
 	)
 }
 

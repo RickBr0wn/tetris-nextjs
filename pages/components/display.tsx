@@ -1,12 +1,13 @@
 import { FC } from 'react'
+import { StyledDisplay } from './styled-compoenents/styled-display'
 
 type DisplayProps = {
-	gameOver: () => void
+	gameOver: boolean
 	text: string
 }
 
-const Display: FC<DisplayProps> = (): JSX.Element => {
-	return <h1>Display</h1>
+const Display: FC<DisplayProps> = ({ gameOver, text }): JSX.Element => {
+	return <StyledDisplay gameOver={gameOver}>{text}</StyledDisplay>
 }
 
 export default Display

@@ -1,11 +1,13 @@
 import { FC } from 'react'
+import { StyledCell } from './styled-compoenents/styled-cell'
+import { TETROMINOES, TetrominoKeys } from '../tetrominoes'
 
 type CellProps = {
-	type: string
+	type: TetrominoKeys
 }
 
 const Cell: FC<CellProps> = ({ type }): JSX.Element => {
-	return <h1>Cell</h1>
+	return <StyledCell type={type} color={TETROMINOES[type].color} />
 }
 
 export default Cell

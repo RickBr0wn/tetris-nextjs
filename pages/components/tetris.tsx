@@ -2,22 +2,32 @@ import { FC } from 'react'
 import Stage from './stage'
 import Display from './display'
 import StartButton from './start-button'
+import { createStage } from '../helpers/gameHelper'
+import log from './log'
+import { StyledTetrisWrapper } from './styled-compoenents/styled-tetris-wrapper'
+import { StyledTetris } from './styled-compoenents/styled-tetris'
 
 type Props = {}
 
 const Tetris: FC<Props> = (): JSX.Element => {
+	const stage = createStage()
+
+	log(stage)
+
 	return (
-		<div>
-			<Stage stage='' />
-			<aside>
-				<div>
-					<Display gameOver={() => {}} text='Score: ' />
-					<Display gameOver={() => {}} text='Rows: ' />
-					<Display gameOver={() => {}} text='Level: ' />{' '}
-				</div>
-				<StartButton callback={() => {}} />
-			</aside>
-		</div>
+		<StyledTetrisWrapper>
+			<StyledTetris>
+				<Stage stage={stage} />
+				<aside>
+					<div>
+						<Display gameOver={false} text='Score: ' />
+						<Display gameOver={false} text='Rows: ' />
+						<Display gameOver={false} text='Level: ' />{' '}
+					</div>
+					<StartButton callback={() => {}} />
+				</aside>
+			</StyledTetris>
+		</StyledTetrisWrapper>
 	)
 }
 
